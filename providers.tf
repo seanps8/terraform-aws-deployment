@@ -1,0 +1,20 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+    # TODO: make dynamic
+    backend "s3" {
+    bucket = "sean-tfstate-bucket"
+    key    = "sean.tfstate"
+    region = "us-east-1"
+  }
+}
+
+# Configure the AWS Provider
+provider "aws" {
+  region = var.aws_region
+  profile = var.aws_profile
+}
