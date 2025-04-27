@@ -52,6 +52,22 @@ Please wait — deployment can take several minutes.
 After deployment, the API Gateway Invoke URL will be outputted to the console.
 You can use this URL in your browser to retrieve summary flight data. Because the file is so large, it can take a couple minutes for everything to process and show up at the url.
 
+## Architecture Diagram
+
+Below is a high-level architecture diagram of the deployed AWS resources:
+
+![Architecture Diagram](docs/aws_flow_diagram.png)
+
+### Components:
+
+- **S3 Bucket**: Stores the uploaded flight data file and Terraform state file.
+- **Lambda Function**: Processes uploaded CSV files and writes to RDS.
+- **API Gateway**: Provides an HTTP endpoint to access the flight summary.
+- **RDS (MySQL)**: Stores processed flight data and summary information.
+- **VPC**: Provides network isolation for Lambda and RDS.
+
+---
+
 ## Destroying Resources
 To clean up all AWS resources created by this project:
 
