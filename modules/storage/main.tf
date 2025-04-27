@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "data_bucket" {
-  bucket = "sean-terraform-challenge-bucket"
+  bucket = "flight-data-terraform-challenge-bucket"
   force_destroy = true
 }
 
