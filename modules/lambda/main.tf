@@ -76,13 +76,13 @@ resource "aws_security_group" "lambda_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]  # Allow all inbound
+    cidr_blocks = ["0.0.0.0/0"] 
   }
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]  # Allow all outbound
+    cidr_blocks = ["0.0.0.0/0"] 
   }
 }
 
@@ -109,15 +109,11 @@ resource "aws_lambda_function" "lambda_function" {
       DB_NAME         = var.db_name
     }
   }
-}
 
-# resource "aws_lambda_permission" "api_gateway" {
-#   statement_id  = "AllowAPIGatewayInvoke"
-#   action        = "lambda:InvokeFunction"
-#   function_name = var.function_name
-#   principal     = "apigateway.amazonaws.com"
-#   source_arn    = "${aws_api_gateway_rest_api.api.execution_arn}/*/*"
-# }
+  depends_on = [
+    aws_security_group.lambda_sg
+  ]
+}
 
 resource "aws_lambda_permission" "allow_s3" {
   statement_id  = "AllowS3Invoke"
