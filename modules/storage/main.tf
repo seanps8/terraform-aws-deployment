@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "data_bucket" {
   bucket = "sean-terraform-challenge-bucket"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_public_access_block" "bucket_public_block" {
@@ -27,14 +28,14 @@ resource "aws_security_group" "rds_sg" {
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = var.cidr_block  # Allow traffic from Lambda SG
+    cidr_blocks = var.cidr_block 
   }
 
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]  # Allow all outbound traffic
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {

@@ -5,12 +5,7 @@ terraform {
       version = "~> 5.0"
     }
   }
-    # TODO: make dynamic
-    backend "s3" {
-    bucket = "sean-tfstate-bucket"
-    key    = "sean.tfstate"
-    region = "us-east-1"
-  }
+  backend "s3" {}
 }
 
 # Configure the AWS Provider
