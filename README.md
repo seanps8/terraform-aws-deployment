@@ -34,7 +34,7 @@ aws configure --profile your-profile-name
 
 2. **Run the Startup Script**
 
-   In your terminal, run:
+   In your terminal at the root of the repository, run:
 
    ```bash
    ./startup.sh
@@ -71,7 +71,7 @@ Below is a high-level architecture diagram of the deployed AWS resources:
 ## Destroying Resources
 To clean up all AWS resources created by this project:
 
-   In your terminal, run:
+   In your terminal at the root of the repository, run:
 
    ```bash
    ./destroy.sh
