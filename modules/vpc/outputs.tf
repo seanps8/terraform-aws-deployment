@@ -6,10 +6,7 @@ output "private_subnet_ids" {
   value = module.vpc.private_subnets
 }
 
-# output "private_route_table_ids" {
-#   value = module.vpc.private_route_table_ids
-# }
-
-# output "public_route_table_ids" {
-#   value = module.vpc.public_route_table_ids
-# }
+output "vpc_cidr_block" {
+  description = "The CIDR block of the VPC"
+  value       = module.vpc.private_subnets_cidr_blocks
+}

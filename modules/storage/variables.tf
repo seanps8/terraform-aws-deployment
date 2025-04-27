@@ -14,3 +14,13 @@ variable "subnet_ids" {
   description = "Subnet ids"
   type = set(string)
 }
+
+variable "vpc_id" {
+  description = "VPC id"
+  type = string
+}
+
+variable "cidr_block" {
+  description = "vpc cidr block"
+  type = list(string)
+}

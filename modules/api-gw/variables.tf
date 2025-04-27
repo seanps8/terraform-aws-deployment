@@ -7,3 +7,8 @@ variable "function_name" {
   description = "Lambda function name"
   type = string
 }
+
+variable "aws_region" {
+  description = "AWS region to deploy"
+  type = string
+}

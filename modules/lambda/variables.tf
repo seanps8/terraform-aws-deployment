@@ -39,3 +39,8 @@ variable "data_bucket_arn" {
   description = "s3 data bucket arn"
   type = string
 }
+
+variable "data_bucket_name" {
+  description = "s3 data bucket name"
+  type = string
+}
