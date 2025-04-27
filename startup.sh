@@ -54,3 +54,4 @@ aws s3 cp flightlist.csv.gz s3://$S3_UPLOAD_BUCKET/ --profile "$AWS_PROFILE"
 
 API_URL=$(terraform output -raw api_invoke_url)
 echo "Deployed Successfully! Because the file is so large, it can take a couple minutes for everything to process. Check this api url in about 2-3 minutes --> $API_URL"
+rm -rf flightlist.csv.gz
