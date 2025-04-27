@@ -50,7 +50,7 @@ Please wait — deployment can take several minutes.
 
 
 After deployment, the API Gateway Invoke URL will be outputted to the console.
-You can use this URL in your browser to retrieve summary flight data.
+You can use this URL in your browser to retrieve summary flight data. Because the file is so large, it can take a couple minutes for everything to process and show up at the url.
 
 ## Destroying Resources
 To clean up all AWS resources created by this project:
