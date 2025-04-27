@@ -78,12 +78,9 @@ To clean up all AWS resources created by this project:
    ```
 This script will:
 - Destroy all Terraform-managed infrastructure.
-- Clean up related AWS resources (like ENIs, VPCs, Security Groups, etc.).
-
+- Take a while to destroy everything. 
 
 📄 Notes
 - Ensure your AWS user has permissions to create and delete VPCs, Lambda functions, S3 buckets, and RDS instances.
 
 - Some deletion operations (like VPCs, ENIs, and Security Groups) might take extra time to complete.
-
-- If you encounter issues destroying ENIs, the destroy script handles clean-up automatically.
