@@ -1,5 +1,9 @@
+resource "random_id" "bucket_suffix" {
+  byte_length = 4
+}
+
 resource "aws_s3_bucket" "data_bucket" {
-  bucket = "flight-data-terraform-challenge-bucket"
+  bucket = "flight-data-terraform-bucket-${random_id.bucket_suffix.hex}"
   force_destroy = true
 }
 
