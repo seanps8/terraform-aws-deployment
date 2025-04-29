@@ -18,12 +18,22 @@ echo "Checking if S3 bucket $STATE_BUCKET exists..."
 if aws s3api head-bucket --bucket "$STATE_BUCKET" --profile "$AWS_PROFILE" 2>/dev/null; then
     echo "Bucket $STATE_BUCKET already exists."
 else
-    echo "🔹 Creating bucket $STATE_BUCKET..."
-    aws s3api create-bucket \
-        --bucket "$STATE_BUCKET" \
-        --region "$AWS_REGION" \
-        --profile "$AWS_PROFILE"
-    echo "Bucket created."
+    if [ "$AWS_REGION" == "us-east-1" ]; then
+        echo "🔹 Creating bucket $STATE_BUCKET..."
+        aws s3api create-bucket \
+            --bucket "$STATE_BUCKET" \
+            --region "$AWS_REGION" \
+            --profile "$AWS_PROFILE"
+        echo "Bucket created."
+    else
+        echo "🔹 Creating bucket $STATE_BUCKET..."
+        aws s3api create-bucket \
+            --bucket "$STATE_BUCKET" \
+            --region "$AWS_REGION" \
+            --create-bucket-configuration LocationConstraint="$AWS_REGION" \
+            --profile "$AWS_PROFILE"
+        echo "Bucket created."
+    fi
 fi
 
 # Initialize backend
