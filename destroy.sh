@@ -9,6 +9,8 @@ STATE_KEY=$(grep state_key aws.tfvars | cut -d '"' -f2)
 
 export AWS_PROFILE="$AWS_PROFILE"
 export AWS_REGION="$AWS_REGION"
+export TF_VAR_db_user="admin"
+export TF_VAR_db_password="1234567890"
 
 echo "Starting Terraform destroy..."
 
