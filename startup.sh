@@ -4,7 +4,7 @@ set -e
 
 # Load environment variables
 export TF_VAR_db_user="admin"
-export TF_VAR_db_password="1234567890"
+export TF_VAR_db_password="xxxxxxxx"
 
 # Read from aws.tfvars
 AWS_REGION=$(grep aws_region aws.tfvars | cut -d '"' -f2)
